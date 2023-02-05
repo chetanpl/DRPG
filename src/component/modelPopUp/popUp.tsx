@@ -6,10 +6,10 @@ console.log('first_name',first_name);
 
     function updateUserRecord(e: any): void {
         const { 0: first_name, 1: last_name, 2: email } = e.target;
-        let record = {
-            "first_name": first_name.value,
-            "last_name": last_name.value,
-            "email": email.value
+        //let record = {
+        //    "first_name": first_name.value,
+        //    "last_name": last_name.value,
+        //    "email": email.value
         }
         // apiActions.put(`https://reqres.in/api/users/${newRecord.id}`,record).then((result) => {
 
