@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
+import apiActions from '../utility/apiCall';
 export default function Popup({ setviewMode, setnewRecord, newRecord }: any): React.ReactElement {
 const { first_name, last_name, email } = newRecord[0];
+console.log('first_name',first_name);
     const [btnevent, setBtnEvent] = useState<number>(0);
 
     function updateUserRecord(e: any): void {
-        //const { 0: first_name, 1: last_name, 2: email } = e.target;
-        //let record = {
-        //    "first_name": first_name.value,
-        //    "last_name": last_name.value,
-        //    "email": email.value
-        //}
-        // apiActions.put(`https://reqres.in/api/users/${newRecord.id}`,record).then((result) => {
+        const { 0: first_name, 1: last_name, 2: email } = e.target;
+        let record = {
+            "first_name": first_name.value,
+            "last_name": last_name.value,
+            "email": email.value
+        }
+        apiActions.put(`https://reqres.in/api/users/${newRecord.id}`,record).then((result) => {
 
-        // });
+        });
     }
     function submit(e: React.SyntheticEvent<HTMLFormElement>) {
         if (btnevent === 1) {
