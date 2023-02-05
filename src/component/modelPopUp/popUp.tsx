@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import apiActions from '../utility/apiCall';
+// import apiActions from '../utility/apiCall';
 export default function Popup({ setviewMode, setnewRecord, newRecord }: any): React.ReactElement {
-    const { first_name, last_name, email, id } = newRecord[0];
+    const { first_name, last_name, email } = newRecord[0];
     const [btnevent, setBtnEvent] = useState<number>(0);
     const [firstName, setFirstName] = useState<string>(first_name);
     const [lastName, setLastName] = useState<string>(last_name);
