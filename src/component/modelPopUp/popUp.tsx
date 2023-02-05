@@ -10,7 +10,7 @@ console.log('first_name',first_name);
         //    "first_name": first_name.value,
         //    "last_name": last_name.value,
         //    "email": email.value
-        }
+        //}
         // apiActions.put(`https://reqres.in/api/users/${newRecord.id}`,record).then((result) => {
 
         // });
