@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 export default function Popup({ setviewMode, setnewRecord, newRecord }: any): React.ReactElement {
 const { first_name, last_name, email } = newRecord[0];
-console.log('first_name',first_name);
     const [btnevent, setBtnEvent] = useState<number>(0);
 
     function updateUserRecord(e: any): void {
-        const { 0: first_name, 1: last_name, 2: email } = e.target;
+        //const { 0: first_name, 1: last_name, 2: email } = e.target;
         //let record = {
         //    "first_name": first_name.value,
         //    "last_name": last_name.value,
