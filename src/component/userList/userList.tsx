@@ -33,7 +33,7 @@ function UserList() :React.ReactElement{
     }
     function retriveUsersList() {
         setLoading(true);
-        apiActions.Get(`https://reqres.in/api/users?page=${currentPage}`).then((result) => {
+        apiActions.Get(`https://reqres.in/api/users?page=${currentPageNumber}`).then((result) => {
             const { data, total } = result?.data;
             setEndPage(total);
             setuserdata(data);
@@ -57,7 +57,7 @@ function UserList() :React.ReactElement{
 
     return (
         <div className="myApp">
-            <div className="search">Search: <input type='search' onChange={e => searchEngine(e.target.value)} /> Current Page :{currentPage}</div>
+            <div className="search">Search: <input type='search' onChange={e => searchEngine(e.target.value)} /> Current Page :{currentPageNumber}</div>
             {filter.length > 0 ? <div className="overflow"><table>
                 <tbody>
                     <tr className="header">
