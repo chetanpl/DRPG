@@ -1,5 +1,3 @@
-// https://reqres.in/api/users?page=2
-
 import React, { useEffect, useState } from "react";
 import apiActions from "../utility/apiCall";
 import "./userList.css";
@@ -19,6 +17,19 @@ function UserList() :React.ReactElement{
 
 
     useEffect(() => {
+        function retriveUsersList() {
+            setLoading(true);
+            apiActions.Get(`https://reqres.in/api/users?page=${currentPageNumber}`).then((result) => {
+                const { data, total } = result?.data;
+                setEndPage(total);
+                setuserdata(data);
+                setFilter(data);
+                setLoading(false);
+            }).catch((error) => {
+                setLoading(false);
+                setSetError(error.message)
+            });
+        }
         retriveUsersList();
     }, [currentPageNumber]);
     function searchEngine(name: string): void {
@@ -30,19 +41,6 @@ function UserList() :React.ReactElement{
             setFilter(userdata) :
             setFilter(selectedRow)
 
-    }
-    function retriveUsersList() {
-        setLoading(true);
-        apiActions.Get(`https://reqres.in/api/users?page=${currentPageNumber}`).then((result) => {
-            const { data, total } = result?.data;
-            setEndPage(total);
-            setuserdata(data);
-            setFilter(data);
-            setLoading(false);
-        }).catch((error) => {
-            setLoading(false);
-            setSetError(error.message)
-        });
     }
 
     function handleView(rowid: number) {
