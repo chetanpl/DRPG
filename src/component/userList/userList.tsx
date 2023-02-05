@@ -11,7 +11,7 @@ function UserList() :React.ReactElement{
     const [userdata, setuserdata] = useState<gridObject[]>([]);
     const [filter, setFilter] = useState<gridObject[]>([]);
     const [viewMode, setviewMode] = useState<boolean>(false);
-    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [currentPageNumber, setCurrentPage] = useState<number>(1);
     const [newRecord, setnewRecord] = useState<gridObject[]>();
     const [endPage, setEndPage] = useState<number>();
     const [loading, setLoading] = useState<boolean>(false);
@@ -20,7 +20,7 @@ function UserList() :React.ReactElement{
 
     useEffect(() => {
         retriveUsersList();
-    }, [currentPage]);
+    }, [currentPageNumber]);
     function searchEngine(name: string): void {
         const selectedRow = userdata?.filter(function (res: gridObject): boolean {
             return res.last_name.toLowerCase() === name.toLowerCase() || res.email.toLowerCase() === name.toLowerCase()
@@ -98,7 +98,7 @@ function UserList() :React.ReactElement{
                 <Pagination
                     totalPosts={endPage}
                     paginate={setCurrentPage}
-                    currentPage={currentPage}
+                    currentPage={currentPageNumber}
                 />
             </div>
         </div>
