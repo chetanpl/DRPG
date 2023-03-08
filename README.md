@@ -32,5 +32,3 @@ point ](https://reqres.in/api/users?page=1) for more information.
 4. Pagination 
 <img width="1717" alt="image" src="https://user-images.githubusercontent.com/16497813/216846907-b73747ce-667d-4b1c-ab76-56f23ee028ab.png">
 
-update query does not working. Server responding error. I have written code. If it passes the correct URl for update query. It start to work. 
-See the section about [does not work update api endpoint ](https://reqres.in/api/users/${newRecord.id}) for more information.
